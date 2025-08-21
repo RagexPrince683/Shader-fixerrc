@@ -157,6 +157,7 @@ public enum LateMixins implements IMixins {
         .addClientMixins(
             "HBM.space.MixinBeamPronter_SPACE", // LASERS, but for spork
             "HBM.space.MixinSkyProviderCelestial", // Sky
+            //todo disable if being a bitch
             "HBM.space.MixinMissilePronter" // "Fix" (just scale it a little) fuselage Z-fighting (glClipPlane not
                                              // working with shaders)
             //"HBM.space.MixinOrreryPronter" // Yare yare... (Fix orbital paths)
