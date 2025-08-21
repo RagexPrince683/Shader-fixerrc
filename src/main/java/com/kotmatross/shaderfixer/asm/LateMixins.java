@@ -145,7 +145,7 @@ public enum LateMixins implements IMixins {
             "HBM.MixinDiamondPronter", // NFPA 704 (on barrels, tanks)
             "HBM.MixinRenderPylonBase", // WIRES
             "HBM.MixinHbmAnimations", // Fix flickering
-            "HBM.MixinBlockRebar" // Fix outline
+            //"HBM.MixinBlockRebar" // Fix outline
         )),
 
     HBM_OG_ONLY(new MixinBuilder().addRequiredMod(TargetMods.HBM)
@@ -159,7 +159,7 @@ public enum LateMixins implements IMixins {
             "HBM.space.MixinSkyProviderCelestial", // Sky
             "HBM.space.MixinMissilePronter", // "Fix" (just scale it a little) fuselage Z-fighting (glClipPlane not
                                              // working with shaders)
-            "HBM.space.MixinOrreryPronter" // Yare yare... (Fix orbital paths)
+            //"HBM.space.MixinOrreryPronter" // Yare yare... (Fix orbital paths)
         )),
 
     HEE(new MixinBuilder().addRequiredMod(TargetMods.HEE)
