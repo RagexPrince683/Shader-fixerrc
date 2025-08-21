@@ -144,7 +144,7 @@ public enum LateMixins implements IMixins {
             "HBM.MixinRenderTorex", // MUSHROOM
             "HBM.MixinDiamondPronter", // NFPA 704 (on barrels, tanks)
             "HBM.MixinRenderPylonBase", // WIRES
-            "HBM.MixinHbmAnimations", // Fix flickering
+            "HBM.MixinHbmAnimations" // Fix flickering
             //"HBM.MixinBlockRebar" // Fix outline
         )),
 
@@ -157,7 +157,7 @@ public enum LateMixins implements IMixins {
         .addClientMixins(
             "HBM.space.MixinBeamPronter_SPACE", // LASERS, but for spork
             "HBM.space.MixinSkyProviderCelestial", // Sky
-            "HBM.space.MixinMissilePronter", // "Fix" (just scale it a little) fuselage Z-fighting (glClipPlane not
+            "HBM.space.MixinMissilePronter" // "Fix" (just scale it a little) fuselage Z-fighting (glClipPlane not
                                              // working with shaders)
             //"HBM.space.MixinOrreryPronter" // Yare yare... (Fix orbital paths)
         )),
