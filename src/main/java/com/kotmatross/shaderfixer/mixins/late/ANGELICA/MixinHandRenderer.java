@@ -17,12 +17,12 @@ import com.kotmatross.shaderfixer.utils.NTMUtils_WRAPPER;
 public class MixinHandRenderer {
     // FOR ANGELICA (Opt*f#ne can go fuck itself - ✅)
 
-    @Inject(method = "setupGlState", at = @At(value = "HEAD"), remap = false)
-    public void HandleInterp(RenderGlobal gameRenderer, Camera camera, float tickDelta, CallbackInfo ci) {
-        if (NTMUtils_WRAPPER.checkVibe(IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON)) {
-            NTMUtils_WRAPPER.handleInterpolation(tickDelta); // INTERPOLATE FOV (SCOPE)
-        }
-    }
+    //@Inject(method = "setupGlState", at = @At(value = "HEAD"), remap = false)
+    //public void HandleInterp(RenderGlobal gameRenderer, Camera camera, float tickDelta, CallbackInfo ci) {
+    //    if (NTMUtils_WRAPPER.checkVibe(IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON)) {
+    //        NTMUtils_WRAPPER.handleInterpolation(tickDelta); // INTERPOLATE FOV (SCOPE)
+    //    }
+    //}
 
     @ModifyArg(
         method = "setupGlState",
@@ -32,9 +32,9 @@ public class MixinHandRenderer {
             ordinal = 0),
         index = 1)
     private boolean FOVConfigApply(boolean useFOVSetting) {
-        if (NTMUtils_WRAPPER.checkVibe(IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON)) {
-            return NTMUtils_WRAPPER.getFOVConf();
-        }
+        //if (NTMUtils_WRAPPER.checkVibe(IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON)) {
+        //    return NTMUtils_WRAPPER.getFOVConf();
+        //}
         return false;
     }
 }

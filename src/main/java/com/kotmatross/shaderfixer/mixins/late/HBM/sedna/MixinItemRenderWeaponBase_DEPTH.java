@@ -14,20 +14,20 @@ public class MixinItemRenderWeaponBase_DEPTH {
     // It should be enabled only when using the resource pack "NTM texture patch for shaders" (removes black background
     // -> doesn't overwrite depth buffer -> doesn't need to be disabled)
 
-    @WrapWithCondition(
-        method = "renderMuzzleFlash(JID)V",
-        at = @At(value = "INVOKE", target = "org/lwjgl/opengl/GL11.glDepthMask (Z)V", ordinal = 0),
-        remap = false)
-    private static boolean reverseDepth(boolean b) {
-        return false;
-    }
-
-    @WrapWithCondition(
-        method = "renderMuzzleFlash(JID)V",
-        at = @At(value = "INVOKE", target = "org/lwjgl/opengl/GL11.glDepthMask (Z)V", ordinal = 1),
-        remap = false)
-    private static boolean reverseDepth2(boolean b) {
-        return false;
-    }
+    //@WrapWithCondition(
+    //    method = "renderMuzzleFlash(JID)V",
+    //    at = @At(value = "INVOKE", target = "org/lwjgl/opengl/GL11.glDepthMask (Z)V", ordinal = 0),
+    //    remap = false)
+    //private static boolean reverseDepth(boolean b) {
+    //    return false;
+    //}
+//
+    //@WrapWithCondition(
+    //    method = "renderMuzzleFlash(JID)V",
+    //    at = @At(value = "INVOKE", target = "org/lwjgl/opengl/GL11.glDepthMask (Z)V", ordinal = 1),
+    //    remap = false)
+    //private static boolean reverseDepth2(boolean b) {
+    //    return false;
+    //}
 
 }

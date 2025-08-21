@@ -11,9 +11,9 @@ import com.hbm.util.Clock;
 @Mixin(value = HbmAnimations.class, priority = 999)
 public class MixinHbmAnimations {
 
-    @Inject(method = "getRelevantTransformation(Ljava/lang/String;I)[D", at = @At(value = "HEAD"), remap = false)
-    private static void getRelevantTransformation(String bus, int index, CallbackInfoReturnable<double[]> cir) {
-        Clock.update();
-    }
+    //@Inject(method = "getRelevantTransformation(Ljava/lang/String;I)[D", at = @At(value = "HEAD"), remap = false)
+    //private static void getRelevantTransformation(String bus, int index, CallbackInfoReturnable<double[]> cir) {
+    //    Clock.update();
+    //}
 
 }

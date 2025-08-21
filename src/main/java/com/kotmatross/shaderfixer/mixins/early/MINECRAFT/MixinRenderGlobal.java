@@ -17,9 +17,9 @@ import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 public abstract class MixinRenderGlobal implements IWorldAccess {
 
     // I fucking hate this thing
-    @WrapWithCondition(
-        method = "renderSky",
-        at = @At(value = "INVOKE", target = "Lorg/lwjgl/opengl/GL11;glCallList(I)V", ordinal = 3))
+    //@WrapWithCondition(
+    //    method = "renderSky",
+    //    at = @At(value = "INVOKE", target = "Lorg/lwjgl/opengl/GL11;glCallList(I)V", ordinal = 3))
     private boolean disableFuckingHorizon(int i) {
         return !ShaderFixerConfig.VANILLA_DISABLE_HORIZON;
     }

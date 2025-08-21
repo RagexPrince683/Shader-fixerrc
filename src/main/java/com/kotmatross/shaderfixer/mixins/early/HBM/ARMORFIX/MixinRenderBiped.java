@@ -34,35 +34,35 @@ public class MixinRenderBiped {
                 IItemRenderer customRenderer = MinecraftForgeClient
                     .getItemRenderer(held, IItemRenderer.ItemRenderType.EQUIPPED);
 
-                if (NTMUtils_WRAPPER.isAkimboRenderer(customRenderer)) {
-                    GL11.glPushMatrix();
-
-                    this.modelBipedMain.bipedLeftArm.isHidden = false;
-                    this.modelBipedMain.bipedLeftArm.postRender(0.0625F);
-
-                    // vanilla bullshit
-                    GL11.glTranslatef(-0.0625F, 0.4375F, 0.0625F);
-                    float scale = 0.375F;
-                    GL11.glTranslatef(0.25F, 0.1875F, -0.1875F);
-                    GL11.glScalef(scale, scale, scale);
-                    GL11.glRotatef(60.0F, 0.0F, 0.0F, 1.0F);
-                    GL11.glRotatef(-90.0F, 1.0F, 0.0F, 0.0F);
-                    GL11.glRotatef(20.0F, 0.0F, 0.0F, 1.0F);
-                    // forge bullshit
-
-                    GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-                    GL11.glTranslatef(0.0F, -0.3F, 0.0F);
-                    GL11.glScalef(1.5F, 1.5F, 1.5F);
-                    GL11.glRotatef(50.0F, 0.0F, 1.0F, 0.0F);
-                    GL11.glRotatef(335.0F, 0.0F, 0.0F, 1.0F);
-                    GL11.glTranslatef(-0.9375F, -0.0625F, 0.0F);
-
-                    NTMUtils_WRAPPER.akimboSetupNRender(customRenderer, held);
-
-                    GL11.glDisable(GL12.GL_RESCALE_NORMAL);
-
-                    GL11.glPopMatrix();
-                }
+                //if (NTMUtils_WRAPPER.isAkimboRenderer(customRenderer)) {
+                //    GL11.glPushMatrix();
+//
+                //    this.modelBipedMain.bipedLeftArm.isHidden = false;
+                //    this.modelBipedMain.bipedLeftArm.postRender(0.0625F);
+//
+                //    // vanilla bullshit
+                //    GL11.glTranslatef(-0.0625F, 0.4375F, 0.0625F);
+                //    float scale = 0.375F;
+                //    GL11.glTranslatef(0.25F, 0.1875F, -0.1875F);
+                //    GL11.glScalef(scale, scale, scale);
+                //    GL11.glRotatef(60.0F, 0.0F, 0.0F, 1.0F);
+                //    GL11.glRotatef(-90.0F, 1.0F, 0.0F, 0.0F);
+                //    GL11.glRotatef(20.0F, 0.0F, 0.0F, 1.0F);
+                //    // forge bullshit
+//
+                //    GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+                //    GL11.glTranslatef(0.0F, -0.3F, 0.0F);
+                //    GL11.glScalef(1.5F, 1.5F, 1.5F);
+                //    GL11.glRotatef(50.0F, 0.0F, 1.0F, 0.0F);
+                //    GL11.glRotatef(335.0F, 0.0F, 0.0F, 1.0F);
+                //    GL11.glTranslatef(-0.9375F, -0.0625F, 0.0F);
+//
+                //    NTMUtils_WRAPPER.akimboSetupNRender(customRenderer, held);
+//
+                //    GL11.glDisable(GL12.GL_RESCALE_NORMAL);
+//
+                //    GL11.glPopMatrix();
+                //}
             }
         }
     }

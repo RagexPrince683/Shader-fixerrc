@@ -15,19 +15,19 @@ public class NTMUtils {
         ItemRenderWeaponBase.interp = interp;
     }
 
-    protected static boolean isAkimboRenderer(IItemRenderer customRenderer) {
-        if (customRenderer instanceof ItemRenderWeaponBase renderWeapon) {
-            return renderWeapon.isAkimbo();
-        }
-        return false;
-    }
+    //protected static boolean isAkimboRenderer(IItemRenderer customRenderer) {
+    //    if (customRenderer instanceof ItemRenderWeaponBase renderWeapon) {
+    //        return renderWeapon.isAkimbo();
+    //    }
+    //    return false;
+    //}
 
-    protected static void akimboSetupNRender(IItemRenderer customRenderer, ItemStack held) {
-        if (customRenderer instanceof ItemRenderWeaponBase renderWeapon) {
-            renderWeapon.setupThirdPersonAkimbo(held);
-            renderWeapon.renderEquippedAkimbo(held);
-        }
-    }
+    //protected static void akimboSetupNRender(IItemRenderer customRenderer, ItemStack held) {
+    //    if (customRenderer instanceof ItemRenderWeaponBase renderWeapon) {
+    //        renderWeapon.setupThirdPersonAkimbo(held);
+    //        renderWeapon.renderEquippedAkimbo(held);
+    //    }
+    //}
 
     protected static boolean getFOVConf() {
         return ClientConfig.GUN_MODEL_FOV.get();

@@ -26,16 +26,16 @@ public class MixinModelBiped {
     // AND, fixes the rendering of akimbo weapons for players with CustomPlayerModels model
     // (CustomPlayerModels does the transformation before NTM does it in the forge event, so we do it right in the
     // vanilla code :D)
-    @Inject(method = "setRotationAngles", at = @At(value = "TAIL"))
-    public void setRotationAngles(float walkCycle, float walkAmplitude, float idleCycle, float headYaw, float headPitch,
-        float scale, Entity entity, CallbackInfo ci) {
-        if (ShaderFixer.IS_HBM_NTM_PRESENT) {
-            if ((entity instanceof EntityLivingBase entityLivingBase)) {
-                if (NTMUtils_WRAPPER.checkVibe_Akimbo(entityLivingBase)) {
-                    this.bipedLeftArm.rotateAngleY = 0.1F + this.bipedHead.rotateAngleY;
-                }
-            }
-        }
-    }
+   // @Inject(method = "setRotationAngles", at = @At(value = "TAIL"))
+   // public void setRotationAngles(float walkCycle, float walkAmplitude, float idleCycle, float headYaw, float headPitch,
+   //     float scale, Entity entity, CallbackInfo ci) {
+   //     if (ShaderFixer.IS_HBM_NTM_PRESENT) {
+   //         if ((entity instanceof EntityLivingBase entityLivingBase)) {
+   //             if (NTMUtils_WRAPPER.checkVibe_Akimbo(entityLivingBase)) {
+   //                 this.bipedLeftArm.rotateAngleY = 0.1F + this.bipedHead.rotateAngleY;
+   //             }
+   //         }
+   //     }
+   // }
 
 }
