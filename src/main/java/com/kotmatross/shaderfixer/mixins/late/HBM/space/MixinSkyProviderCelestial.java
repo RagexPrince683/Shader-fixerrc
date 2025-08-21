@@ -43,22 +43,22 @@ public class MixinSkyProviderCelestial {
         Utils.Fix2();
     }
 
-    @Inject(method = "renderDigamma", at = @At(value = "HEAD"), remap = false)
-    protected void lodeStarFixBrightness(float partialTicks, WorldClient world, Minecraft mc, float celestialAngle,
-        CallbackInfo ci) {
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-    }
+    //@Inject(method = "renderDigamma", at = @At(value = "HEAD"), remap = false)
+    //protected void lodeStarFixBrightness(float partialTicks, WorldClient world, Minecraft mc, float celestialAngle,
+    //    CallbackInfo ci) {
+    //    GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+    //}
 
-    @ModifyArgs(
-        method = "renderDigamma",
-        at = @At(value = "INVOKE", target = "org/lwjgl/opengl/GL11.glColor4f(FFFF)V"),
-        remap = false)
-    private void digammaStarFixBrightness(Args args) {
-        args.set(0, 1.0F);
-        args.set(1, 1.0F);
-        args.set(2, 1.0F);
-        args.set(3, 1.0F);
-    }
+    //@ModifyArgs(
+    //    method = "renderDigamma",
+    //    at = @At(value = "INVOKE", target = "org/lwjgl/opengl/GL11.glColor4f(FFFF)V"),
+    //    remap = false)
+    //private void digammaStarFixBrightness(Args args) {
+    //    args.set(0, 1.0F);
+    //    args.set(1, 1.0F);
+    //    args.set(2, 1.0F);
+    //    args.set(3, 1.0F);
+    //}
 
     // Fixes sunset not rendering
     @Inject(
@@ -150,18 +150,18 @@ public class MixinSkyProviderCelestial {
         return !ShaderFixerConfig.NTM_SPACE_DISABLE_PLANET_RENDER && !AngelicaUtils.isShaderEnabled();
     }
 
-    @Inject(
-        method = "renderSun",
-        at = @At(
-            value = "INVOKE",
-            target = "net/minecraft/client/renderer/texture/TextureManager.func_110577_a (Lnet/minecraft/util/ResourceLocation;)V",
-            shift = At.Shift.BEFORE,
-            ordinal = 1),
-        remap = false)
-    public void SUN_BRIGHT(float partialTicks, WorldClient world, Minecraft mc, CelestialBody sun, double sunSize,
-        double coronaSize, float visibility, float pressure, CallbackInfo ci) {
-        Utils.EnableFullBrightness();
-    }
+    //@Inject(
+    //    method = "renderSun",
+    //    at = @At(
+    //        value = "INVOKE",
+    //        target = "net/minecraft/client/renderer/texture/TextureManager.func_110577_a (Lnet/minecraft/util/ResourceLocation;)V",
+    //        shift = At.Shift.BEFORE,
+    //        ordinal = 1),
+    //    remap = false)
+    //public void SUN_BRIGHT(float partialTicks, WorldClient world, Minecraft mc, CelestialBody sun, double sunSize,
+    //    double coronaSize, float visibility, float pressure, CallbackInfo ci) {
+    //    Utils.EnableFullBrightness();
+    //}
 
     // Offsets Tessellator's y by 0.1, preventing z-fighting with shader skybox
     @ModifyArg(
@@ -195,7 +195,7 @@ public class MixinSkyProviderCelestial {
 
     /**
      * All these WrapWithConditions are aimed at removing this block of code:
-     * 
+     *
      * <pre>
      *  {@code
      *        tessellator.func_78382_b();
@@ -206,7 +206,7 @@ public class MixinSkyProviderCelestial {
      *        tessellator.func_78381_a();
      *  }
      * </pre>
-     * 
+     *
      * If angelica shaders are enabled (fixes the white square near the sun)
      */
 
@@ -245,33 +245,33 @@ public class MixinSkyProviderCelestial {
      *
      * <pre>
      *  {@code
-     *  
+     *
      *   GL11.glRotated(metric.angle, 1.0, 0.0, 0.0);
      *   GL11.glRotated(metric.inclination, 0.0, 0.0, 1.0);
      *   GL11.glRotatef(axialTilt + 90.0F, 0.0F, 1.0F, 0.0F);
-     *   
+     *
      *   ...
-     *   
+     *
      *   GL11.glDisable(GL11.GL_BLEND);
      * 	 GL11.glColor4f(1.0F, 1.0F, 1.0F, visibility);
      * 	 mc.renderEngine.bindTexture(metric.body.texture);
-     *   
+     *
      *   INJECT(shaders_fixer$programORBIT.set(Utils.GLGetCurrentProgram()), Utils.GLUseDefaultProgram())
-     *   
+     *
      *   tessellator.startDrawingQuads();
      *   tessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D + uvOffset, 0.0D);
      *   tessellator.addVertexWithUV(size, 100.0D, -size, 1.0D + uvOffset, 0.0D);
      *   tessellator.addVertexWithUV(size, 100.0D, size, 1.0D + uvOffset, 1.0D);
      *   tessellator.addVertexWithUV(-size, 100.0D, size, 0.0D + uvOffset, 1.0D);
      *   tessellator.draw();
-     *   
+     *
      *   INJECT(Utils.GLUseProgram(shaders_fixer$programORBIT.get()))
-     *   
+     *
      *  }
      * </pre>
      *
      * Fixes orbit... for fucking 2 time already
-     * 
+     *
      */
 
     @Inject(
@@ -305,13 +305,13 @@ public class MixinSkyProviderCelestial {
 
     /**
      * All these WrapWithConditions are aimed at removing this block of code:
-     * 
+     *
      * <pre>
      *  {@code
-     *  
+     *
      *   // Draw another layer on top to blend with the atmosphere
      * 	 GL11.glColor4d(planetTint.xCoord - blendDarken, planetTint.yCoord - blendDarken, planetTint.zCoord - blendDarken, (1 - blendAmount * visibility));
-     *   
+     *
      *   // -----DELETE START-----
      *   tessellator.startDrawingQuads();
      *   tessellator.addVertexWithUV(-size, 100.0D, -size, 0.0D, 0.0D);
@@ -322,7 +322,7 @@ public class MixinSkyProviderCelestial {
      *   // -----DELETE END-----
      *  }
      * </pre>
-     * 
+     *
      * If angelica shaders are enabled AND rendering planet is on orbit (Fixes the horror that is happening in orbit)
      */
 
