@@ -26,34 +26,34 @@ public class MixinEntityRenderer {
     // FOR VANILLA / PARTIALLY (ANGEL)ICA (NOT FOR SHITFINE)
 
     // Vanilla / MixinHandRenderer for Angelica
-    @Inject(method = "renderHand", at = @At(value = "HEAD"))
-    public void HandleInterp(float interp, int p_78476_2_, CallbackInfo ci) {
-        if (NTMUtils_WRAPPER.checkVibe(IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON)) {
-            NTMUtils_WRAPPER.handleInterpolation(interp); // INTERPOLATE FOV (SCOPE)
-        }
-    }
+   // @Inject(method = "renderHand", at = @At(value = "HEAD"))
+   // public void HandleInterp(float interp, int p_78476_2_, CallbackInfo ci) {
+   //     if (NTMUtils_WRAPPER.checkVibe(IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON)) {
+   //         NTMUtils_WRAPPER.handleInterpolation(interp); // INTERPOLATE FOV (SCOPE)
+   //     }
+   // }
 
     // Vanilla / MixinHandRenderer for Angelica
-    @ModifyArg(
-        method = "renderHand",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/EntityRenderer;getFOVModifier(FZ)F",
-            ordinal = 0),
-        index = 1)
-    private boolean FOVConfigApply(boolean useFOVSetting) {
-        if (NTMUtils_WRAPPER.checkVibe(IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON)) {
-            return NTMUtils_WRAPPER.getFOVConf();
-        }
-        return false;
-    }
+   // @ModifyArg(
+   //     method = "renderHand",
+   //     at = @At(
+   //         value = "INVOKE",
+   //         target = "Lnet/minecraft/client/renderer/EntityRenderer;getFOVModifier(FZ)F",
+   //         ordinal = 0),
+   //     index = 1)
+   // private boolean FOVConfigApply(boolean useFOVSetting) {
+   //     if (NTMUtils_WRAPPER.checkVibe(IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON)) {
+   //         return NTMUtils_WRAPPER.getFOVConf();
+   //     }
+   //     return false;
+   // }
 
     // Shared, for both Vanilla / Angelica
-    @ModifyConstant(method = "getFOVModifier", constant = @Constant(floatValue = 70.0F, ordinal = 0))
-    public float ModifyBaseFOV(float fov, @Local EntityLivingBase entityplayer) {
-        if (NTMUtils_WRAPPER.checkVibe(IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON)) {
-            return NTMUtils_WRAPPER.getGunsBaseFOV(entityplayer.getHeldItem());
-        }
-        return fov;
-    }
+  //  @ModifyConstant(method = "getFOVModifier", constant = @Constant(floatValue = 70.0F, ordinal = 0))
+  //  public float ModifyBaseFOV(float fov, @Local EntityLivingBase entityplayer) {
+  //      if (NTMUtils_WRAPPER.checkVibe(IItemRenderer.ItemRenderType.EQUIPPED_FIRST_PERSON)) {
+  //          return NTMUtils_WRAPPER.getGunsBaseFOV(entityplayer.getHeldItem());
+  //      }
+  //      return fov;
+  //  }
 }
