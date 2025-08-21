@@ -127,12 +127,12 @@ public enum LateMixins implements IMixins {
             "HBM.MixinRenderRainbow", // !ZOMG
             //"HBM.sedna.MixinLegoClient", // Bullet render
             "HBM.sedna.MixinModEventHandlerRenderer", // Redirect to out system
-            "HBM.sedna.MixinItemRenderWeaponBase", // Smoke, flash brightness
-            "HBM.sedna.guns.MixinItemRenderAtlas", // Patch texture after smoke
-            "HBM.sedna.guns.MixinItemRenderDANI", // Patch dual texture
-            "HBM.sedna.guns.MixinItemRenderHenry", // Patch texture after smoke
-            "HBM.sedna.guns.MixinItemRenderMaresleg", // Patch texture after smoke
-            "HBM.sedna.guns.MixinItemRenderMareslegAkimbo", // Patch texture after smoke
+            //"HBM.sedna.MixinItemRenderWeaponBase", // Smoke, flash brightness
+            //"HBM.sedna.guns.MixinItemRenderAtlas", // Patch texture after smoke
+            //"HBM.sedna.guns.MixinItemRenderDANI", // Patch dual texture
+            //"HBM.sedna.guns.MixinItemRenderHenry", // Patch texture after smoke
+            //"HBM.sedna.guns.MixinItemRenderMaresleg", // Patch texture after smoke
+            //"HBM.sedna.guns.MixinItemRenderMareslegAkimbo", // Patch texture after smoke
             "HBM.MixinRenderChemical", // Antimatter thing
             "HBM.MixinRenderSolidifier", // Liquid inside
             "HBM.MixinRenderLiquefactor", // Liquid inside
